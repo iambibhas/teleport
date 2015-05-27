@@ -5,14 +5,14 @@
 ### Run
 
 The Python Script on Terminal as
-	
-	python Teleport.py HOST PORT
-	
+
+	python teleport.py HOST PORT
+
 examples
-	
-	python Teleport.py www.google.com 80
-	python Teleport.py ftp.mozilla.org 21
-	python Teleport.py smtp.gmail.com 25
+
+	python teleport.py www.google.com 80
+	python teleport.py ftp.mozilla.org 21
+	python teleport.py smtp.gmail.com 25
 
 ## Dependencies
 
