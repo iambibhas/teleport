@@ -22,7 +22,7 @@ class Sock(object):
         elif self.PORT == '21':
             self.ftp()
         elif self.PORT == '25':
-            self.SMTP()
+            self.smtp()
         else:
             HOST, PORT = raw_input("Invalid entry, please enter again >>").split()
             self.server_type()
@@ -65,9 +65,9 @@ class Sock(object):
     def choice(self):
         file_dir = raw_input("Enter 'y' to move into a directory 'n' to copy a file from the current directory 'enter' to exit>>")
         if file_dir == 'y':
-            self.Move_to()
+            self.move_to()
         elif file_dir == 'n':
-            self.Copy_to()
+            self.copy_to()
         elif file_dir == '\r':
             exit(0)
         else:
@@ -75,7 +75,7 @@ class Sock(object):
             self.choice()
 
     # move to new dir
-    def Move_to(self):
+    def move_to(self):
         directory = raw_input("Please enter the dir name to move to>>")
         try:
             self.ftp.cwd(directory)
@@ -86,7 +86,7 @@ class Sock(object):
             self.choice()
 
     # Copy file
-    def Copy_to(self):
+    def copy_to(self):
         name = raw_input("Please enter the file name >>")
         try:
             self.ftp.retrbinary('RETR '+name, open(name, 'wb').write)
@@ -98,7 +98,7 @@ class Sock(object):
         self.s.shutdown(1)
         self.s.close()
 
-    def SMTP(self):
+    def smtp(self):
 
         self.s.connect((HOST, int(PORT)))
         # fetch userid password and to address
